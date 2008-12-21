@@ -1,0 +1,70 @@
+This is a compatability lib for projects that use IUnit, for use with HFL.
+ZigZagJoe 12/6/08
+
+This will not function without HFL!
+
+At the time of this writing, all functions except for Build(LOCATION) have been implemented.
+
+The reason this is not done is because the Build packet requires extra info, 
+which a LOCATION alone will not provide! we need the top-left tile as well as the location+the vech's location
+
+I have included DoDeploy, which provides the same function however needs the extra arguments:
+
+void DoDeploy(int tileX, int tileY, int x1, int y1, int x2, int y2) { ...
+              lower-right tile XY   top-left XY     bottom-right XY
+              of building           of dozed area   of dozed area
+
+
+Source included... (most functions are direct calls to HFL UnitEx functions)
+
+---Original Readme Follows---
+
+
+OP2Extra
+
+
+What is it?
+==========
+
+This project adds extra functionality to the unit structure, which i've renamed OP2Unit.
+It includes many more functions then the Unit class exported by Outpost2.
+
+++++++++++
+DISCLAIMER
+++++++++++
+
+Be advised, this library comes with NO warrenty whatsoever, and use it at your own risk.
+I will try to update and bugfix it whenever i find something new.
+
+
+
+
+How to use:
+==========
+
+Redefine ALL your occurences of the Unit class to use IUnit instead 
+(this can easily be done using the search-and-replace action (CTRL+H) in MSVC++)
+Include "IUnit.h" (and if nessecary "commands.h") into your source files,
+and include "op2extra.lib" into your project (workspace).
+Make sure op2extra.dll is in your Outpost2 folder!
+
+Now you can use all other functions i've added as if they are just part of the unit classes.
+
+For example:
+IUnit u;
+TethysGame::CreateUnit(u,mapRoboMiner,LOCATION(48,11),0,mapNone,0)
+u.Build(LOCATION(62,14));
+
+That will make the miner build its mine in the correct position, instead of from the 
+"convec-pos" that it does, when using the RecordBuilding functions
+
+Please check IUnit.h to see what functions were added.
+
+
+
+Credits:
+=======
+
+Done by Eddy-B
+Thanks to Hooman for helping me out!
+(he figured out most of the hacks)
