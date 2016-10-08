@@ -9,7 +9,7 @@
 
 #ifndef IUnit_H
 #define IUnit_H
-
+#include <HFL.h>
 #ifdef IUNIT_CPP
 
 #pragma pack(push,1) // From UnitEx.cpp
