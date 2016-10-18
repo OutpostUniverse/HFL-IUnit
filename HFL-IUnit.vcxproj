@@ -137,9 +137,6 @@
     <ClCompile Include="IUnit.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HFL\Source\HFL.vcxproj">
-      <Project>{0fc43a25-fb89-4258-849b-cb3c0a061e0d}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Outpost2DLL\Outpost2DLL.vcxproj">
       <Project>{b3f40368-f3cc-4ec5-a758-f5dad08feddc}</Project>
     </ProjectReference>
